@@ -10,7 +10,7 @@
   "author": "Blockscout Team",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blockscout/frontend.git",
+    "url": "https://github.com/innoweb3-dex/frontend-v2.git",
     "directory": "toolkit/package"
   },
   "homepage": "https://github.com/blockscout/frontend/tree/main/toolkit/package",
