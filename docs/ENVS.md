@@ -214,6 +214,9 @@ _Note_ Here, all values are arrays of up to two strings. The first string repres
 | Variable | Type| Description | Compulsoriness  | Default value | Example value | Version |
 | --- | --- | --- | --- | --- | --- | --- |
 | NEXT_PUBLIC_FOOTER_LINKS | `string` | URL of configuration file (`.json` format only) or file content string representation. It contains list of link groups to be displayed in the footer. See [below](#footer-links-configuration-properties) list of available properties for particular group | - | - | `https://example.com/footer_links_config.json` \| `[{'title':'My chain','links':[{'text':'About','url':'https://example.com/about'},{'text':'Contacts','url':'https://example.com/contacts'}]}]` | v1.1.1+ |
+| NEXT_PUBLIC_SOCIAL_TWITTER | `string` | Twitter/X URL for footer. When set (alone or with other social vars), replaces Blockscout social links (Contribute, Twitter, Discord) with the configured social links. | - | - | `https://x.com/your_project` | - |
+| NEXT_PUBLIC_SOCIAL_MEDIUM | `string` | Medium URL for footer. When set, replaces Blockscout social links. | - | - | `https://medium.com/@your_project` | - |
+| NEXT_PUBLIC_SOCIAL_TELEGRAM | `string` | Telegram URL for footer. When set, replaces Blockscout social links. | - | - | `https://t.me/your_project` | - |
 
 The app version shown in the footer is derived from build-time ENV variables `NEXT_PUBLIC_GIT_TAG` and `NEXT_PUBLIC_GIT_COMMIT_SHA` and cannot be overwritten at run-time.
 
