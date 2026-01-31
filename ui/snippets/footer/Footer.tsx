@@ -13,7 +13,7 @@ import useIssueUrl from 'lib/hooks/useIssueUrl';
 import { Link } from 'toolkit/chakra/link';
 import { Skeleton } from 'toolkit/chakra/skeleton';
 import { copy } from 'toolkit/utils/htmlEntities';
-import IconSvg from 'ui/shared/IconSvg';
+// import IconSvg from 'ui/shared/IconSvg';
 import { CONTENT_MAX_WIDTH } from 'ui/shared/layout/utils';
 import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
 
@@ -123,16 +123,22 @@ const Footer = () => {
       <Box gridArea={ gridArea }>
         <Flex columnGap={ 2 } textStyle="xs" alignItems="center">
           <span>Made with</span>
-          <Link href="https://www.blockscout.com" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
+          { /* <Link href="https://www.blockscout.com" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
             <IconSvg
               name="networks/logo-placeholder"
               width="80px"
               height={ 4 }
             />
+          </Link> */ }
+          <Link href="http://pindex.co" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
+            { /* <img src="https://p.ipic.vip/f78o80.svg" /> */ }
+            { /* <Text>PINDex</Text> */ }
+            PINDex
           </Link>
         </Flex>
         <Text mt={ 3 } fontSize="xs">
-          Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+          { /* Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks. */ }
+          AI-Native (Artificial Intelligence) Native Execution On-chain Derivatives
         </Text>
         <Box mt={ 6 } alignItems="start" textStyle="xs">
           { apiVersionUrl && (
@@ -146,7 +152,8 @@ const Footer = () => {
             </Text>
           ) }
           <Text>
-            Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() }
+            { /* Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() } */ }
+            Copyright { copy } PINDEX.CO { (new Date()).getFullYear() }
           </Text>
         </Box>
       </Box>
