@@ -141,7 +141,8 @@ const Footer = () => {
         </Flex>
         <Text mt={ 3 } fontSize="xs">
           { /* Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks. */ }
-          AI-Native (Artificial Intelligence) Native Execution of On-Chain Derivatives
+          PINChain is a self-developed high-performance public chain by PINDex, built for professional trading scenarios,
+          taking into account execution performance, cost control, and on-chain verifiable settlement.
         </Text>
         <Box mt={ 6 } alignItems="start" textStyle="xs">
           { /* { apiVersionUrl && (
