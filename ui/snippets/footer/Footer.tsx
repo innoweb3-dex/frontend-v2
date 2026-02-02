@@ -1,6 +1,7 @@
 import type { GridProps, HTMLChakraProps } from '@chakra-ui/react';
 import { Box, Grid, Flex, Text, VStack } from '@chakra-ui/react';
 import { useQuery } from '@tanstack/react-query';
+import Image from 'next/image';
 import React from 'react';
 
 import type { CustomLinksGroup } from 'types/footerLinks';
@@ -10,6 +11,7 @@ import type { ResourceError } from 'lib/api/resources';
 import useApiQuery from 'lib/api/useApiQuery';
 import useFetch from 'lib/hooks/useFetch';
 import useIssueUrl from 'lib/hooks/useIssueUrl';
+import { useColorMode } from 'toolkit/chakra/color-mode';
 import { Link } from 'toolkit/chakra/link';
 import { Skeleton } from 'toolkit/chakra/skeleton';
 import { copy } from 'toolkit/utils/htmlEntities';
@@ -19,12 +21,12 @@ import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
 
 import FooterLinkItem from './FooterLinkItem';
 import IntTxsIndexingStatus from './IntTxsIndexingStatus';
-import getApiVersionUrl from './utils/getApiVersionUrl';
+// import getApiVersionUrl from './utils/getApiVersionUrl';
 
 const MAX_LINKS_COLUMNS = 4;
 
-const FRONT_VERSION_URL = `https://github.com/innoweb3-dex/frontend-v2/tree/${ config.UI.footer.frontendVersion }`;
-const FRONT_COMMIT_URL = `https://github.com/innoweb3-dex/frontend-v2/commit/${ config.UI.footer.frontendCommit }`;
+// const FRONT_VERSION_URL = `https://github.com/innoweb3-dex/frontend-v2/tree/${ config.UI.footer.frontendVersion }`;
+// const FRONT_COMMIT_URL = `https://github.com/innoweb3-dex/frontend-v2/commit/${ config.UI.footer.frontendCommit }`;
 
 const Footer = () => {
 
@@ -34,8 +36,9 @@ const Footer = () => {
       enabled: !config.features.opSuperchain.isEnabled,
     },
   });
-  const apiVersionUrl = getApiVersionUrl(backendVersionData?.backend_version);
+  // const apiVersionUrl = getApiVersionUrl(backendVersionData?.backend_version);
   const issueUrl = useIssueUrl(backendVersionData?.backend_version);
+  const { colorMode } = useColorMode();
 
   const BLOCKSCOUT_LINKS = [
     {
@@ -76,17 +79,17 @@ const Footer = () => {
     },
   ];
 
-  const frontendLink = (() => {
-    if (config.UI.footer.frontendVersion) {
-      return <Link href={ FRONT_VERSION_URL } target="_blank">{ config.UI.footer.frontendVersion }</Link>;
-    }
+  // const frontendLink = (() => {
+  //   if (config.UI.footer.frontendVersion) {
+  //     return <Link href={ FRONT_VERSION_URL } target="_blank">{ config.UI.footer.frontendVersion }</Link>;
+  //   }
 
-    if (config.UI.footer.frontendCommit) {
-      return <Link href={ FRONT_COMMIT_URL } target="_blank">{ config.UI.footer.frontendCommit }</Link>;
-    }
+  //   if (config.UI.footer.frontendCommit) {
+  //     return <Link href={ FRONT_COMMIT_URL } target="_blank">{ config.UI.footer.frontendCommit }</Link>;
+  //   }
 
-    return null;
-  })();
+  //   return null;
+  // })();
 
   const fetch = useFetch();
 
@@ -122,7 +125,7 @@ const Footer = () => {
     return (
       <Box gridArea={ gridArea }>
         <Flex columnGap={ 2 } textStyle="xs" alignItems="center">
-          <span>Made with</span>
+          <Text>Made with</Text>
           { /* <Link href="https://www.blockscout.com" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
             <IconSvg
               name="networks/logo-placeholder"
@@ -131,34 +134,34 @@ const Footer = () => {
             />
           </Link> */ }
           <Link href="http://pindex.co" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
-            { /* <img src="https://p.ipic.vip/f78o80.svg" /> */ }
-            { /* <Text>PINDex</Text> */ }
-            PINDex
+            { colorMode === 'light' ?
+              <Image src="https://p.ipic.vip/f78o80.svg" height={ 10 } width={ 50 } alt="PINDEX.CO"/> :
+              <Image src="https://p.ipic.vip/nvvrs2.svg" height={ 10 } width={ 50 } alt="PINDEX.CO"/> }
           </Link>
         </Flex>
         <Text mt={ 3 } fontSize="xs">
           { /* Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks. */ }
-          AI-Native (Artificial Intelligence) Native Execution On-chain Derivatives
+          AI-Native (Artificial Intelligence) Native Execution of On-Chain Derivatives
         </Text>
         <Box mt={ 6 } alignItems="start" textStyle="xs">
-          { apiVersionUrl && (
+          { /* { apiVersionUrl && (
             <Text>
               Backend: <Link href={ apiVersionUrl } target="_blank">{ backendVersionData?.backend_version }</Link>
             </Text>
-          ) }
-          { frontendLink && (
+          ) } */ }
+          { /* { frontendLink && (
             <Text>
               Frontend: { frontendLink }
             </Text>
-          ) }
+          ) } */ }
           <Text>
             { /* Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() } */ }
-            Copyright { copy } PINDEX.CO { (new Date()).getFullYear() }
+            { copy } 2026 Pindex.co
           </Text>
         </Box>
       </Box>
     );
-  }, [ apiVersionUrl, backendVersionData?.backend_version, frontendLink ]);
+  }, [ colorMode ]);
 
   const containerProps: HTMLChakraProps<'div'> = {
     as: 'footer',
@@ -213,7 +216,7 @@ const Footer = () => {
           >
             {
               ([
-                { title: 'Blockscout', links: BLOCKSCOUT_LINKS },
+                // { title: 'Blockscout', links: BLOCKSCOUT_LINKS },
                 ...(linksData || []),
               ])
                 .slice(0, colNum)
