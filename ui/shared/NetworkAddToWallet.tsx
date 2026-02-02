@@ -20,7 +20,8 @@ const NetworkAddToWallet = () => {
   return (
     <Button variant="outline" size="sm" onClick={ handleClick }>
       <IconSvg name={ WALLETS_INFO[wallet].icon } boxSize={ 5 }/>
-      Add { config.chain.name }
+      { /* Add { config.chain.name } */ }
+      Click to add network
     </Button>
   );
 };
