@@ -23,6 +23,12 @@ function generateCspPolicy() {
     descriptors.usernameApi(),
     descriptors.walletConnect(),
     descriptors.zetachain(),
+    {
+      'connect-src': [ 'default-src \'self\'', `connect-src 'self' http://47.130.229.119:*;` ],
+    },
+    {
+      'connect-src': [ 'default-src \'self\'', `connect-src 'self' http://54.179.136.218:*;` ],
+    },
   );
 
   return makePolicyString(policyDescriptor);

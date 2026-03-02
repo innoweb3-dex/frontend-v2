@@ -29,6 +29,7 @@ import AddressCoinBalance from 'ui/address/AddressCoinBalance';
 import AddressContract from 'ui/address/AddressContract';
 import AddressDeposits from 'ui/address/AddressDeposits';
 import AddressDetails from 'ui/address/AddressDetails';
+import AddressDexTxns from 'ui/address/AddressDexTxns';
 import AddressEpochRewards from 'ui/address/AddressEpochRewards';
 import AddressInternalTxs from 'ui/address/AddressInternalTxs';
 import AddressLogs from 'ui/address/AddressLogs';
@@ -172,6 +173,11 @@ const AddressPageContent = () => {
         id: 'index',
         title: 'Details',
         component: <AddressDetails addressQuery={ addressQuery } countersQuery={ countersQuery } isLoading={ isTabsLoading }/>,
+      },
+      {
+        id: 'dex_txns',
+        title: 'Dex txns',
+        component: <AddressDexTxns shouldRender={ !isTabsLoading } isQueryEnabled={ areQueriesEnabled }/>,
       },
       addressQuery.data?.is_contract ? {
         id: 'contract',
