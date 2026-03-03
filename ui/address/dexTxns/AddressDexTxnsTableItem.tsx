@@ -47,6 +47,7 @@ const AddressDexTxnsTableItem = (props: Props) => {
           isLoading={ props.isLoading }
           noIcon
           textStyle="sm"
+          truncation="constant_long"
         />
       </TableCell>
       <TableCell>
@@ -66,6 +67,7 @@ const AddressDexTxnsTableItem = (props: Props) => {
           noIcon
           textStyle="sm"
           tailLength={ 4 }
+          truncation="constant_long"
         />
       </TableCell>
       <TableCell>
@@ -75,6 +77,7 @@ const AddressDexTxnsTableItem = (props: Props) => {
           noIcon
           textStyle="sm"
           fontWeight={ 700 }
+          truncation="constant_long"
         />
       </TableCell>
     </TableRow>

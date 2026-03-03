@@ -7,6 +7,7 @@ import { KEY_WORDS } from '../utils';
 const MAIN_DOMAINS = [
   `*.${ config.app.host }`,
   config.app.host,
+  '54.179.136.218:3001',
 ].filter(Boolean);
 
 const externalFontsDomains = (() => {

@@ -31,6 +31,7 @@ export default function useAddressDexTxnsQuery({ enabled }: Props) {
     queryOptions: {
       queryKey: [ 'general:address_dex_txns_list', address, page ],
       enabled: enabled && Boolean(address),
+      placeholderData: (previousData) => previousData,
     },
     fetchParams: {
       method: 'POST',

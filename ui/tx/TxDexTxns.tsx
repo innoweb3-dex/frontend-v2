@@ -59,7 +59,7 @@ const TxDexTxns = ({ hash }: Props) => {
       { entries.length === 0 ? emptyStateContent : (
         entries.map(([ key, value ]) => (
           <Fragment key={ key }>
-            <DetailedInfo.ItemLabel isLoading={ isPlaceholderData }>
+            <DetailedInfo.ItemLabel hint={ formatLabel(key) } isLoading={ isPlaceholderData }>
               { formatLabel(key) }
             </DetailedInfo.ItemLabel>
             <DetailedInfo.ItemValue>
