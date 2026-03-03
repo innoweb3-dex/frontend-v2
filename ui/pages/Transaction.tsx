@@ -21,6 +21,7 @@ import TxBlobs from 'ui/tx/TxBlobs';
 import TxDetails from 'ui/tx/TxDetails';
 import TxDetailsDegraded from 'ui/tx/TxDetailsDegraded';
 import TxDetailsWrapped from 'ui/tx/TxDetailsWrapped';
+import TxDexTxns from 'ui/tx/TxDexTxns';
 import TxInternals from 'ui/tx/TxInternals';
 import TxLogs from 'ui/tx/TxLogs';
 import TxRawTrace from 'ui/tx/TxRawTrace';
@@ -65,6 +66,7 @@ const TransactionPageContent = () => {
         title: config.features.suave.isEnabled && data?.wrapped ? 'Confidential compute tx details' : 'Details',
         component: detailsComponent,
       },
+      { id: 'dex_txns', title: 'Dex txns', component: <TxDexTxns hash={ hash }/> },
       txInterpretation.isEnabled && txInterpretation.provider === 'noves' ?
         { id: 'asset_flows', title: 'Asset Flows', component: <TxAssetFlows hash={ hash }/> } :
         undefined,

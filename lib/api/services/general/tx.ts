@@ -1,4 +1,5 @@
 import type { ApiResource } from '../../types';
+import type { AddressDexTxnsResponse } from 'types/api/addressDexTxns';
 import type { TxBlobs } from 'types/api/blobs';
 import type { InternalTransactionFilters, InternalTransactionsResponse } from 'types/api/internalTransaction';
 import type { LogsResponseTx } from 'types/api/log';
@@ -12,6 +13,7 @@ import type {
   TransactionsResponseWithBlobs,
   TransactionsStats,
 } from 'types/api/transaction';
+import type { TxDetailInfoResponse } from 'types/api/txDetailInfo';
 import type { TxInterpretationResponse } from 'types/api/txInterpretation';
 import type { TTxsFilters, TTxsWithBlobsFilters } from 'types/api/txsFilters';
 import type { TxStateChanges } from 'types/api/txStateChanges';
@@ -91,6 +93,13 @@ export const GENERAL_API_TX_RESOURCES = {
     path: '/api/v2/transactions/:hash/external-transactions',
     pathParams: [ 'hash' as const ],
   },
+  tx_detail_info: {
+    path: '/dashboard/api/plg/xnode/pindex/txDetailInfo/:hash',
+    pathParams: [ 'hash' as const ],
+  },
+  address_dex_txns_list: {
+    path: '/dashboard/api/plg/xnode/pindex/list',
+  },
   internal_txs: {
     path: '/api/v2/internal-transactions',
     paginated: true,
@@ -117,6 +126,8 @@ R extends 'general:tx_state_changes' ? TxStateChanges :
 R extends 'general:tx_blobs' ? TxBlobs :
 R extends 'general:tx_interpretation' ? TxInterpretationResponse :
 R extends 'general:tx_external_transactions' ? Array<string> :
+R extends 'general:tx_detail_info' ? TxDetailInfoResponse :
+R extends 'general:address_dex_txns_list' ? AddressDexTxnsResponse :
 R extends 'general:internal_txs' ? InternalTransactionsResponse :
 never;
 /* eslint-enable @stylistic/indent */
