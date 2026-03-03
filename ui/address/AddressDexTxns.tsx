@@ -34,12 +34,10 @@ const AddressDexTxns = ({ shouldRender = true, isQueryEnabled = true }: Props) =
     <TableRoot tableLayout="auto" minW="900px">
       <TableHeaderSticky top={ pagination.isVisible ? ACTION_BAR_HEIGHT_DESKTOP : 0 }>
         <TableRow>
-          <TableColumnHeader>ID</TableColumnHeader>
           <TableColumnHeader>
-            Time
+            Tx time
             <TimeFormatToggle/>
           </TableColumnHeader>
-          <TableColumnHeader>User address</TableColumnHeader>
           <TableColumnHeader>Block</TableColumnHeader>
           <TableColumnHeader>Block hash</TableColumnHeader>
           <TableColumnHeader>Txn hash</TableColumnHeader>
